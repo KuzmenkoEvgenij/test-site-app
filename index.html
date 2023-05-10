@@ -1,0 +1,64 @@
+<html>
+    <head>
+        <style>
+            .button {
+              background-color: #4CAF50;
+              border: none;
+              color: white;
+              padding: 15px 32px;
+              text-align: center;
+              text-decoration: none;
+              font-size: 16px;
+              margin: 4px 2px;
+              cursor: pointer;
+              margin: 0 auto;
+              display: block;
+            }
+            </style>
+    
+        <title>Як встановити додаток?</title>
+    
+    </head>
+
+
+    <script>
+        function getMobileOperatingSystem() {
+            var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+            // Windows Phone must come first because its UA also contains "Android"
+            if (/windows phone/i.test(userAgent)) {
+                return "Windows Phone";
+            }
+
+            if (/android/i.test(userAgent)) {
+                return "Android";
+            }
+
+            // iOS detection from: http://stackoverflow.com/a/9039885/177710
+            if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+                return "iOS";
+            }
+
+            return "unknown";
+        }
+
+        function redirectToPage() {
+            let os = getMobileOperatingSystem();
+
+            if(os === "iOS") {
+                window.location.replace("https://fzy-foodtech.notion.site/iPhone-b700ad3bf0614f6c89bd3211560d9524");
+            } else if(os === "Android") {
+                window.location.replace("https://fzy-foodtech.notion.site/android-6fb24093a87b47f3856fa37bafbed219");
+            }
+        }
+        </script>
+    <body onload="redirectToPage()">
+
+        <h2>Як встановити додаток?</h2>
+
+        <a href="https://fzy-foodtech.notion.site/android-6fb24093a87b47f3856fa37bafbed219" class="button">Android</a>
+        <br>
+        <a href="https://fzy-foodtech.notion.site/iPhone-b700ad3bf0614f6c89bd3211560d9524" class="button">iOS</a>
+
+    </body>
+</html>
